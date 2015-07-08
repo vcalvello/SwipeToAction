@@ -1,10 +1,12 @@
 SwipeToAction
 ================
+[![Download](https://api.bintray.com/packages/diftco/maven/swipetoaction/images/download.svg) ](https://bintray.com/diftco/maven/swipetoaction/_latestVersion)
+
 
 An easy way to add a simple 'swipe-and-do-something' behavior to your `RecyclerView` items.
 Just like in Gmail or Inbox apps.
 
-![SwipeToAction Sample](https://raw.githubusercontent.com/diftco/SwipeToAction/master/screenshots/swipetoaction.gif) ------
+![SwipeToAction Sample](https://raw.githubusercontent.com/diftco/SwipeToAction/master/screenshots/swipetoaction.gif)
 
 ### Integration
 The lib is available on Maven Central, you can find it with [Gradle, please](http://gradleplease.appspot.com/#swipetoaction)
@@ -20,7 +22,7 @@ dependencies {
 
 Check a demo project in the `sample/` folder.
 
-1.The view you'll use for the items should have at least 3 children:
+1. The view you'll use for the items should have at least 3 children:
  - the one at the front (the last one or anyone with the `tag=front`)
  - the one to reveal when you swipe to left (before the front view or anyone with `tag=reveal-left`)
  - the one to reveal when you swipe to right (before the reveal-left view or anyone with `tag=reveal-right`)
@@ -80,7 +82,7 @@ Check a demo project in the `sample/` folder.
  </RelativeLayout>
 ```
 
-2.In the adapter for your `RecyclerView` create a ViewHolder that extends SwipeToAction.ViewHolder<T>.
+2. In the adapter for your `RecyclerView` create a ViewHolder that extends SwipeToAction.ViewHolder<T>.
 For instance, in the sample project I have a list of books and my items are instances of a Book class therefore the ViewHolder inside the adapter looks like this:
 
 ```java
@@ -106,7 +108,7 @@ Also, in the `onBindViewHolder` method remember to set the item data to the view
   }
 ```
 
-3.Set the `RecyclerView` as usual to create a vertical list, set the previous adapter and instantiate SwipeToAction
+3. Set the `RecyclerView` as usual to create a vertical list, set the previous adapter and instantiate SwipeToAction
 providing the recyclerView instance and a swipe listener `SwipeToAction.SwipeListener<T>`
 
 ```java
