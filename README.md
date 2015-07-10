@@ -13,7 +13,7 @@ The lib is available on Maven Central, you can find it with [Gradle, please](htt
 
 ```
 dependencies {
-    compile 'co.dift.ui.swipetoaction:library:1.0'
+    compile 'co.dift.ui.swipetoaction:library:1.1'
 }
 
 ```

@@ -22,7 +22,8 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.facebook.fresco:fresco:0.5.3+'
+    compile 'com.android.support:recyclerview-v7:22.2.0'
     compile 'com.android.support:design:22.2.0'
+    compile 'com.facebook.fresco:fresco:0.5.3+'
     compile project(':library')
 }
