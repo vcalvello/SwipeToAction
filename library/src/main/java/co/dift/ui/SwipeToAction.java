@@ -210,7 +210,7 @@ public class SwipeToAction {
         upTime = 0;
     }
 
-    private void checkQueue() {
+    private boolean checkQueue() {
         // workaround in case a swipe call while dragging
         Integer next = swipeQueue.poll();
         if (next != null) {
@@ -220,6 +220,21 @@ public class SwipeToAction {
             } else {
                 swipeRight(pos);
             }
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    private void hideLeftRevealView() {
+        if (revealLeftView != null) {
+            revealLeftView.setVisibility(View.GONE);
+        }
+    }
+
+    private void hideRightRevealView() {
+        if (revealRightView != null) {
+            revealRightView.setVisibility(View.GONE);
         }
     }
 
@@ -306,7 +321,9 @@ public class SwipeToAction {
                         if (swipeListener.swipeRight(touchedViewHolder.getItemData())) {
                             resetPosition();
                         } else {
-                            checkQueue();
+                            if (!checkQueue()) {
+                                hideLeftRevealView();
+                            }
                         }
                     }
 
@@ -343,7 +360,9 @@ public class SwipeToAction {
                         if (swipeListener.swipeLeft(touchedViewHolder.getItemData())) {
                             resetPosition();
                         } else {
-                            checkQueue();
+                            if (!checkQueue()){
+                                hideRightRevealView();
+                            }
                         }
                     }
 
@@ -464,7 +483,12 @@ public class SwipeToAction {
                 }
             }
 
-
+            if (revealLeft != null) {
+                revealLeft.setVisibility(View.GONE);
+            }
+            if (revealRight != null) {
+                revealRight.setVisibility(View.GONE);
+            }
         }
 
         @Override
